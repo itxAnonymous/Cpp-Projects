@@ -1,0 +1,353 @@
+#include &quot;stdafx.h&quot;
+#include&lt;iostream&gt;
+#include&lt;conio.h&gt;
+using namespace std;
+class start //base class
+{
+protected:
+char name[30]; //customer name
+public:
+void info() //information function
+{
+cout&lt;&lt;&quot;\t\t\t----------CAFETERIA ORDER MANAGEMENT SYSTEM-----------\n\n&quot;;
+cout&lt;&lt;&quot;Please Enter Your Name: &quot;;
+
+cin&gt;&gt;name; //input name of customer
+}
+};
+class order:public start //drive class
+{
+protected:
+char gotostart; //for option
+int choice,pchoice,pchoice1, quantity; //for item choice and quantity
+public:
+void orrder() //taking order
+{
+start::info(); //call info function
+choice=0;
+beginning: //go to start=y
+cout&lt;&lt;&quot;Hello &quot;&lt;&lt;name&lt;&lt;&quot;\n\nWhat would you like to order?\n\n&quot;;
+cout&lt;&lt;&quot;\t\t\t\t--------Menu--------\n\n&quot;;
+cout&lt;&lt;&quot;1) Pizzas\n&quot;;
+cout&lt;&lt;&quot;2) Burgers\n&quot;;
+cout&lt;&lt;&quot;3) Sandwich\n&quot;;
+cout&lt;&lt;&quot;4) Rolls\n&quot;;
+cout&lt;&lt;&quot;5) Biryani\n\n&quot;;
+cout&lt;&lt;&quot;\nPlease Enter your Choice: &quot;;
+cin&gt;&gt;choice; // input items
+if(choice==1) //if condition for first choice of item
+{
+cout&lt;&lt;&quot;\n1) &quot;&lt;&lt;&quot;Chicken Fazita\n&quot;;
+cout&lt;&lt;&quot;2) &quot;&lt;&lt;&quot;Chicken Bar BQ\n&quot;;
+cout&lt;&lt;&quot;3) &quot;&lt;&lt;&quot;Peri Peri\n&quot;;
+cout&lt;&lt;&quot;4) &quot;&lt;&lt;&quot;Creamy Max\n&quot;;
+cout&lt;&lt;&quot;\nPlease Enter which Flavour would you like to have?:&quot;;
+cin&gt;&gt;pchoice; //selection of flavour
+if(pchoice&gt;=1 &amp;&amp; pchoice&lt;=5) //if condition use for choice material or item size
+{
+cout&lt;&lt;&quot;\n1) Small Rs.250\n&quot;&lt;&lt;&quot;2) Regular Rs.500\n&quot;&lt;&lt;&quot;3) Large Rs.900\n&quot;;
+cout&lt;&lt;&quot;\nChoose Size Please:&quot;;
+cin&gt;&gt;pchoice1; //selection of size
+if(pchoice1&gt;=1 &amp;&amp; pchoice1&lt;=3) //if condition for choising quantity
+cout&lt;&lt;&quot;\nPlease Enter Quantity: &quot;;
+cin&gt;&gt;quantity; //selection of quantity
+switch(pchoice1) //switch statement for choice of different quantity
+{
+case 1: choice = 250*quantity;
+break;
+case 2: choice = 500*quantity;
+break;
+case 3: choice = 900*quantity;
+break;
+}
+switch (pchoice1) //switch for display the selected items
+{
+case 1:
+cout&lt;&lt;&quot;\t\t\t--------Your Order---------\n&quot;;
+
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken fazita&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\n\nThank you For Ordering \n&quot;;
+break;
+case 2:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken Bar BQ&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is &quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 3:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; peeri peeri&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 4:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; creamy mix&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+}
+cout&lt;&lt;&quot;Would you like to order anything else? Y / N:&quot;;
+cin&gt;&gt;gotostart; //curser return to starting of menu
+if(gotostart==&#39;Y&#39; || gotostart==&#39;y&#39;) //this condition for gotostart menu with y
+{
+goto beginning; //cursor will reach on starting point
+//return 0;
+}
+
+}
+}
+else if(choice==2) //elseif for 2nd choice of item
+{
+cout&lt;&lt;&quot;\n1 zinger burger Rs.180&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;2 chicken burger Rs.150&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;3 beef burger Rs.160&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;\nPlease Enter which Burger you would like to have?: &quot;;
+cin&gt;&gt;pchoice1; //selection of flavour
+if(pchoice1&gt;=1 &amp;&amp; pchoice1&lt;=3) //if condition use for choice material or item size
+{
+cout&lt;&lt;&quot;\nPlease Enter Quantity: &quot;;
+cin&gt;&gt;quantity; //selection of quantity
+switch(pchoice1) //switch statement for choice of different quantity
+{
+case 1: choice = 180*quantity;
+break;
+
+case 2: choice = 150*quantity;
+break;
+case 3: choice = 160*quantity;
+break;
+}
+switch (pchoice1) //switch for display the selected items
+{
+case 1:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; zinger burger&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 2:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken burger&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 3:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; beef burger&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering\n&quot;;
+break;
+}
+cout&lt;&lt;&quot;\nWould you like to order anything else? Y / N:&quot;;
+cin&gt;&gt;gotostart; //curser return to starting of menu
+if(gotostart==&#39;Y&#39; || gotostart==&#39;y) //this condition for gotostart menu with y
+{
+goto beginning; //cursor will reach on starting point
+//return 0;
+}
+}
+}
+else if(choice==3) //elseif for 3rd choice of item
+{
+cout&lt;&lt;&quot;\n1 club sandwich Rs.240&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;2 chicken crispy sandwich Rs.160&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;3 extreme veg sandwich Rs.100&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;\nPlease Enter which Sandwich you would like to have?:&quot;;
+cin&gt;&gt;pchoice1; //selection of flavour
+if(pchoice1&gt;=1 &amp;&amp; pchoice1&lt;=3) //if condition use for choice material or item size
+{
+cout&lt;&lt;&quot;\nPlease Enter Quantity: &quot;;
+cin&gt;&gt;quantity; //selection of quantity
+switch(pchoice1) //switch statement for choice of different quantity
+{
+case 1: choice = 240*quantity;
+
+break;
+case 2: choice = 160*quantity;
+break;
+case 3: choice = 100*quantity;
+break;
+}
+switch (pchoice1) //switch for display the selected items
+{
+case 1:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; club sandwich&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 2:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken crispy sandwich&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 3:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; extreme veg sandwich&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+}
+cout&lt;&lt;&quot;Would you like to order anything else? Y / N:&quot;;
+cin&gt;&gt;gotostart; //curser return to starting of menu
+if(gotostart==&#39;Y&#39; || gotostart==&#39;y&#39;) //this condition for go to start menu with y
+{
+goto beginning; //cursor will reach on starting point
+//return 0;
+}
+}
+}
+else if(choice==4) //elseif for 4th choice of item
+{
+cout&lt;&lt;&quot;\n1 chicken chatni roll Rs.150&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;2 chicken mayo roll Rs.100&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;3 veg roll with fries Rs.120&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;\nPlease Enter which you would like to have?: &quot;;
+cin&gt;&gt;pchoice1;
+//selection of flavour
+if(pchoice1&gt;=1 &amp;&amp; pchoice1&lt;=3) //if condition use for choice material or item size
+{
+cout&lt;&lt;&quot;\nHow Much Rolls Do you want: &quot;;
+cin&gt;&gt;quantity; //selection of quantity
+
+switch(pchoice1) //switch statement for choice of different quantity
+{
+case 1: choice = 150*quantity;
+break;
+case 2: choice = 100*quantity;
+break;
+case 3: choice = 120*quantity;
+break;
+}
+switch (pchoice1) //switch for display the selected items
+{
+case 1:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken chatni roll&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 2:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken mayo roll&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 3:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; veg roll with fries&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+}
+}
+}
+else if(choice==5) //else statement for fifth choice
+{
+cout&lt;&lt;&quot;\n1 chicken biryani Rs.160&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;2 pawn biryani Rs.220&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;3 beef biryani Rs.140&quot;&lt;&lt;&quot;\n&quot;;
+cout&lt;&lt;&quot;\nPlease Enter which Biryani you would like to have?:&quot;;
+cin&gt;&gt;pchoice1; //selection of flavour
+if(pchoice1&gt;=1 &amp;&amp; pchoice1&lt;=3) //if condition use for choice material or item size
+{
+cout&lt;&lt;&quot;\nPlease Enter Quantity: &quot;;
+cin&gt;&gt;quantity; //selection of quantity
+switch(pchoice1) //switch statement for choice of different quantity
+{
+case 1: choice = 160*quantity;
+break;
+case 2: choice = 220*quantity;
+
+break;
+case 3: choice = 140*quantity;
+break;
+}
+switch (pchoice1) //switch for display the selected items
+{
+case 1:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; chicken biryani&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 2:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; pawn biryani&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+case 3:
+cout&lt;&lt;&quot;\t\t--------Your Order---------\n&quot;;
+cout&lt;&lt;&quot;NAME : &quot;&lt;&lt;name&lt;&lt;endl;
+cout&lt;&lt;&quot;&quot;&lt;&lt;quantity&lt;&lt;&quot; beef biryani&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nYour Total Bill is&quot;&lt;&lt;choice&lt;&lt;&quot;\nYour Order Will be delivered in 10
+Minutes&quot;&lt;&lt;endl;
+cout&lt;&lt;&quot;\nThank you For Ordering \n&quot;;
+break;
+}
+cout&lt;&lt;&quot;Would you like to order anything else? Y / N:&quot;;
+cin&gt;&gt;gotostart;
+//curser return to starting of menu
+if(gotostart==&#39;Y&#39; || gotostart==&#39;y&#39;) //this condition for gotostart menu with y
+{
+goto beginning; //cursor will reach on starting point
+//return 0;
+}
+}
+}
+else
+{
+system(&quot;CLS&quot;);
+cout&lt;&lt;&quot;Please Select Right Option: \n&quot;;
+cout&lt;&lt;&quot;Would You like to Start the program again? Y / N: &quot;
+;
+cin&gt;&gt;gotostart; //curser return to starting of menu
+if(gotostart==&#39;Y&#39; || gotostart==&#39;y&#39; //this condition for gotostart menu with y
+{
+goto beginning; //cursor will reach on starting point
+//return 0;
+}
+}
+}
+};
+
+int _tmain(int argc, _TCHAR* argv[]) //main body
+{
+order o; //create object of order
+o.orrder(); //display the value
+getch();
+}

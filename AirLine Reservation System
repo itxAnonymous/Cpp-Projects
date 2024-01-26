@@ -1,0 +1,148 @@
+#include "stdafx.h"
+#include<iostream>
+#include<string>
+using namespace std;
+void mainmenu();
+void welcomemenu();
+void reservationentry();
+void modify_one_way();
+void delete_one_way();
+
+char destination[15];
+char name[20];
+char nic[20];
+int seatclass;
+char reservationdate[15];
+int seatNo;
+int mod;
+int _tmain(int argc, _TCHAR* argv[])
+{
+cout<<"\n\n\n\t\t\t\t\t";
+cout<<"\t\t\t\n\t\t\t\tplease wait.....\n";
+cout<<"\n\n\t\t\t\t\t";
+cout<<"loading";
+welcomemenu();
+system("pause");
+return 0;
+}
+void welcomemenu()
+{
+char choice;
+cout<<"\n\n";
+cout<<"\tMINI PROJECT IN C++ PROGRAMMING :\n";
+cout<<"\n\t\t*********AIR LINE RESERVATION*********"<<endl;
+cout<<"\n\tMADE BY :\n";
+cout<<"\n\t\t 1)ANAM BIBI \n";
+cout<<"\n\t\t 2)AMNA SULTAN \n";
+cout<<"\n\t\t 3)ZUNAIRA ZAFAR \n";
+cout<<"\n\n\t\treservation of seat(y/n)"<<endl;
+cin>>choice;
+if(choice=='y'||choice=='Y')
+{
+cout<<"\n\n\t\t_______________-welcome_______________________";
+mainmenu();
+}
+else
+if(choice=='n'||'N')
+{
+
+cout<<"\n\n\t\t__________________terminated______________________";
+}
+else cout<<"invalid choice ";
+
+}
+
+void mainmenu()
+{
+int option=0;
+cout<<"_______________________menu_____________________";
+cout<<"\n1.one way reservation\n2.modify\n3.delete\n4.exit\n";
+cin>>option;
+switch(option)
+{
+case 1:
+reservationentry();
+break;
+case 2:
+modify_one_way();
+break;
+case 3:
+delete_one_way();
+break;
+case 4:
+cout<<"the end thankyou ";
+break;
+default:
+break;
+}
+}
+void reservationentry()
+{
+cout<<"ENTER YOUR NAME "<<endl;
+cin>>name;
+cout<<"ENTER YOUR CNIC(*****_*******_*) "<<endl;
+cin>>nic;
+cout<<"\n1.student class\n2.government class\n3.business class\n";
+cout<<"ENTER YOUR SEAT CLASS ";
+cin>>seatclass;
+cout<<"\n\n\n\t\t1.ISLAMABAD\n\n2.LAHORE\n\n3.KARACHI\n\n4.MULTAN\n";
+cout<<"ENTER YOUR DESTINATION";
+cin>>destination;
+cout<<"ENTER DESIRED SEAT NO(1-100) "<<endl;
+cin>>seatNo;
+cout<<"ENTER YOUR RESERVATION DATE "<<endl;
+cin>>reservationdate;
+if(seatclass==1)
+cout<<"cost is 1000";
+if(seatclass==2)
+cout<<"4500";
+if(seatclass==3)
+cout<<"6000";
+cout<<"\n\n\n\t\t_________________YOUR SEAT IS SUCCESSFULLY
+
+RESERVED_______________";
+cout<<"\n\tYour name is "<<name;
+cout<<"\n\tYour CNIC is "<<nic;
+cout<<"\n\tYour seat class is ";
+
+if(seatclass==1)
+cout<<"Student class";
+if(seatclass==2)
+cout<<"Government class";
+if(seatclass==3)
+
+cout<<"Business class";
+
+cout<<"\n\tYour destination is "<<destination<<endl;
+cout<<"\n\tYour reservation date is "<<reservationdate<<endl;
+cout<<"\n\tYour seat no is "<<seatNo<<endl;
+
+}
+void modify_one_way()
+{
+cout<<"\n\n\t1.modify by name\n2.modify by destination\n3.modify by cnic\n";
+cin>>mod;
+if(mod==1)
+{ cout<<"Enter your name: "<<endl;
+cin>>name;
+cout<<"your name is modified ";
+}
+else if(mod==2)
+{cout<<"Enter your destination\n1.ISLAMABAD \n2.
+
+LAHORE\n3.KARACHI\n4.MULTAN\n";
+cin>>destination;
+cout<<"Your destination is modified";
+}
+else
+cout<<"Enter your CNIC(*****_*******_*): "<<endl;
+cin>>nic;
+cout<<"\nYour CNIC is modified ";
+}
+void delete_one_way()
+{
+cout<<"\nEnter your CNIC number(*****_*******_*) ";
+cin>>nic;
+cout<<"\n\n\t___________your reservation is deleted
+successfully____________________";
+}
